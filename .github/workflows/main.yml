@@ -1,0 +1,12 @@
+on: [push]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    name: Test
+    steps:
+    - uses: actions/checkout@v2
+    - uses: GiovanniBussi/macports-ci-action@v0.1
+    - name: Install a package
+      run: |
+        sudo port install xdrfile

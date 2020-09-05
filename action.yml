@@ -1,5 +1,15 @@
 name: 'macports-ci'
 description: 'Install MacPorts'
+inputs:
+  prefix:
+    description: 'install to this prefix'
+    required: false
+  source:
+    description: 'set to true to force install from source'
+    required: false
+  localports:
+    description: 'location of local ports'
+    required: false
 runs:
   using: "composite"
   steps: 
