@@ -10,3 +10,25 @@ jobs:
     - name: Install a package
       run: |
         sudo port install xdrfile
+  prefix:
+    runs-on: macos-latest
+    name: Prefix
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        prefix: '/alt-prefix/'
+    - uses: GiovanniBussi/macports-ci-action@v0.1
+    - name: Install a package
+      run: |
+        sudo port install xdrfile
+  source:
+    runs-on: macos-latest
+    name: Source
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        source: 'true'
+    - uses: GiovanniBussi/macports-ci-action@v0.1
+    - name: Install a package
+      run: |
+        sudo port install xdrfile
