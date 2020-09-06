@@ -3,15 +3,18 @@ description: 'Install MacPorts'
 inputs:
   prefix:
     description: 'install to this prefix'
-    required: false
+    required: true
+    default: ''
   source:
     description: 'set to true to force install from source'
-    required: false
+    required: true
+    default: ''
   localports:
     description: 'location of local ports'
-    required: false
+    required: true
+    default: ''
 runs:
   using: "composite"
   steps: 
-    - run: ${{ github.action_path }}/run.sh
+    - run: ${{ github.action_path }}/run.sh ${{ inputs.prefix }}
       shell: bash
