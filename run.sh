@@ -1,4 +1,5 @@
 #! /bin/bash
+env
 
 dir="$(mktemp -d)"
 cd "$dir"
