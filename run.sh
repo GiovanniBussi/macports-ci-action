@@ -6,9 +6,9 @@ curl -LO https://raw.githubusercontent.com/GiovanniBussi/macports-ci/master/macp
 cd -
 arg=""
 
-test "$1" != "" && arg="--prefix=$1"
+test "$1" != "" && arg="$arg --prefix=$1"
 
-#test -n "$INPUT_SOURCE" && arg="--source"
+test "$2" == "source" && arg="$arg --source"
 
 source "$dir/macports-ci" install $arg
 

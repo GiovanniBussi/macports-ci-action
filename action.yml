@@ -5,10 +5,10 @@ inputs:
     description: 'install to this prefix'
     required: true
     default: ''
-  source:
-    description: 'set to true to force install from source'
+  mode:
+    description: 'binary or source'
     required: true
-    default: ''
+    default: 'binary'
   localports:
     description: 'location of local ports'
     required: true
@@ -16,5 +16,5 @@ inputs:
 runs:
   using: "composite"
   steps: 
-    - run: ${{ github.action_path }}/run.sh ${{ inputs.prefix }}
+    - run: ${{ github.action_path }}/run.sh ${{ inputs.prefix }} ${{ input.mode }}
       shell: bash

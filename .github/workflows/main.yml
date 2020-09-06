@@ -17,7 +17,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: GiovanniBussi/macports-ci-action@master
       with:
-        prefix: '/alt-prefix/'
+        prefix: '/opt/alt-prefix/'
     - name: Install a package
       run: |
         sudo port install xdrfile
@@ -28,7 +28,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: GiovanniBussi/macports-ci-action@master
       with:
-        source: 'true'
+        mode: source
     - name: Install a package
       run: |
         sudo port install xdrfile
