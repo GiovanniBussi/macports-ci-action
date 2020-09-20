@@ -7,9 +7,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: GiovanniBussi/macports-ci-action@master
+      with:
+        ports: xdrfile python38
     - name: Install a package
       run: |
-        sudo port install xdrfile
+        which trr2xtc
+        python3.8 --version
   prefix:
     runs-on: macos-latest
     name: Prefix

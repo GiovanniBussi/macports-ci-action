@@ -9,6 +9,10 @@ inputs:
     description: 'binary or source'
     required: true
     default: 'binary'
+  ports:
+    description: 'install these ports'
+    required: true
+    default: ''
   localports:
     description: 'location of local ports'
     required: true
@@ -16,5 +20,10 @@ inputs:
 runs:
   using: "composite"
   steps: 
-    - run: ${{ github.action_path }}/run.sh prefix="${{ inputs.prefix }}" mode="${{ inputs.mode }}" localports="${{ inputs.localports }}"
+    - run:
+        ${{ github.action_path }}/run.sh
+        prefix="${{ inputs.prefix }}"
+        mode="${{ inputs.mode }}"
+        ports="${{ inputs.ports }}"
+        localports="${{ inputs.localports }}"
       shell: bash
